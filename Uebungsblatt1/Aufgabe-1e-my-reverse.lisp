@@ -1,11 +1,8 @@
-(defun my-reverse-recursive (reversed remaining)
+(defun my-reverse (remaining &optional reversed)
 	(cond 
 		((null remaining) reversed)
-		(T (my-reverse-recursive (append reversed (last remaining)) (butlast remaining)))	
+		(T (my-reverse (butlast remaining) (append reversed (last remaining))))	
 	)
-)
-(defun my-reverse (a)
-	(my-reverse-recursive '() a)
 )
 
 (my-reverse `(1 2 3 4))
