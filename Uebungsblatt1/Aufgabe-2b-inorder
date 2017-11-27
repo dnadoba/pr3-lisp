@@ -18,3 +18,5 @@
          (inorder (third baum))
      )
 )
+
+(inorder baum)
