@@ -1,4 +1,4 @@
-(defun neues-vorletztes (list element)
+(defun neues-vorletztes (element list)
     (append
         (butlast list)
         (list element)
@@ -6,4 +6,4 @@
     )
 )
 
-(neues-vorletztes `(1 2 3 5) 4)
+(neues-vorletztes 4 `(1 2 3 5))
