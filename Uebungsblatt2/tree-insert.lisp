@@ -12,3 +12,22 @@
     )
 )    
    
+(defun readFile (filename)
+    (with-open-file (stream filename :direction :input)
+        (loop for line = (read stream nil 'eof)
+              until(eql line 'eof)
+              collect line
+        )      
+    )
+)
+
+(defun addAll(tree otherTree)
+    (if(first otherTree)
+       (addAll (insert tree (first otherTree)) (second otherTree))
+       (addAll tree (third otherTree))
+    )
+)    
+
+(defun insertFile (tree fileName)
+    (addAll tree readFile(fileName))
+)
