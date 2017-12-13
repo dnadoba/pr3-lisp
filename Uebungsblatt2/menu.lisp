@@ -4,38 +4,39 @@
 (load "tree-insert.lisp")
 (load "tree-contains-size.lisp")
  
+(defun menu ()
+(setq in -1)
 
-;es wird ein baum benutzt, bei allen methoden der gleiche
-;baumA und baumB
+(setq tree '())
 
-(setq baumA '())
-(setq baumB '(17 nil nil))
+(loop while (not (= in 0)) do
+ 
+ (print " 1: Insert")
+ (print " 2: Datei einfuegen")
+ (print " 3: Ist Vorhanden?")
+ (print " 4: Groesse")
+ (print " 5: Hoehe")
+ (print " 6: Max")
+ (print " 7: Min")
+ (print " 8: Delete")
+ (print " 9: AddAll")
+ (print "10: PrintLevelorder")
+ (print " 0: Stop")
+ (terpri)
+ (print "Ihre Eingabe: ")
+ (setq s (read))
+   (case s
+	 (1 (print "Insert") (print (setq tree (insert tree (read)))))
+	 (2 (print "Datei einfuegen") (print (setq tree (addfile tree (read)))))
+	 (3 (print "Ist vorhanden") (print (contains tree (read) )))
+	 (4 (print "Groesse") (print (size tree)))
+	 (5 (print "Hoehe") (print(height tree)))
+	 (6 (print "Max") (print (finde-groesstes tree)))
+     (7 (print "Min") (print (finde-kleinstes tree)))
+	 (8 (print "Delete") (print(setq tree (entfernen tree (read) ))))
+	 (9 (print "AddAll") (print (setq tree (addAll tree (read)))))
+	 (10 (print "PrintLevelorder") (printLevelorder tree))
+     (0 (print "Beendet") (setq in 0)))))
 
-(setq baumA(insert baumA 3))
-(setq baumA(insert baumA 8))
-(setq baumA(insert baumA 7))
-(setq baumA(insert baumA 1))
-(setq baumA(insert baumA 2))
-"BaumA:"
-(setq baumA(insert baumA 22))
 
-"AddAll BaumB BaumA:"
-(setq baumB (addAll baumB baumA))
-
-"Add File BaumA"
-(setq baumA (addfile baumA "test.txt"))
-
-"Levelorder Baum A:"(tree-printLevelorder baumA)
-"Levelorder Baum B:"(tree-printLevelorder baumB)
-"Hoehe Baum A:"(tree-height baumA)
-
-(if (contains baumA 7)
-	"7 ist in Baum A"
-	"7 ist nicht in Baum A"
-)
-(if (contains baumB 100)
-	"100 ist in Baum B"
-	"100 ist nicht in Baum B"
-)
-
-"Size Baum B:"(size baumB)
+(menu)
