@@ -18,15 +18,11 @@
 )
 
 (defun sizeCount(tree count)
-   (if (first tree)
+   (cond ((first tree)
        (incf count)
-           
-   )  (if (first tree)
        (setq count (sizeCount (second tree) count))
-           
-   ) (if (first tree)
-       (setq count (sizeCount (third tree) count))
+       (setq count (sizeCount (third tree) count))	
+       )
    ) 
-   
    (first(list count))
 )
