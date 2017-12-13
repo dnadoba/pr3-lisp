@@ -11,36 +11,23 @@
 (setq baumA '())
 (setq baumB '(17 nil nil))
 
-"MENU:
-Angebotene Funktionen:
-1:tree-printLevelorder(tree)
-2:insert(tree val)
-3:addAll(tree otherTree)
-4:addFile(tree fileName)
-5:tree-height(tree)
-6:contains(tree val)
-7:size(tree)"
-
-
-
-
 (setq baumA(insert baumA 3))
 (setq baumA(insert baumA 8))
 (setq baumA(insert baumA 7))
 (setq baumA(insert baumA 1))
 (setq baumA(insert baumA 2))
+"BaumA:"
 (setq baumA(insert baumA 22))
 
+"AddAll BaumB BaumA:"
 (setq baumB (addAll baumB baumA))
 
-;(addFile baumB "test.txt")
+"Add File BaumA"
+(setq baumA (addfile baumA "test.txt"))
 
-"Levelorder Baum A:"
-(tree-printLevelorder baumA)
-"Levelorder Baum B:"
-(tree-printLevelorder baumB)
-"Hoehe Baum A:"
-(tree-height baumA)
+"Levelorder Baum A:"(tree-printLevelorder baumA)
+"Levelorder Baum B:"(tree-printLevelorder baumB)
+"Hoehe Baum A:"(tree-height baumA)
 
 (if (contains baumA 7)
 	"7 ist in Baum A"
@@ -51,5 +38,4 @@ Angebotene Funktionen:
 	"100 ist nicht in Baum B"
 )
 
-"Size Baum B:"
-(size baumA)
+"Size Baum B:"(size baumB)
