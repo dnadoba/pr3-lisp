@@ -30,12 +30,12 @@
 	 (2 (print "Datei einfuegen") (print (setq tree (addfile tree (read)))))
 	 (3 (print "Ist vorhanden") (print (contains tree (read) )))
 	 (4 (print "Groesse") (print (size tree)))
-	 (5 (print "Hoehe") (print(height tree)))
+	 (5 (print "Hoehe") (print(tree-height tree)))
 	 (6 (print "Max") (print (finde-groesstes tree)))
      (7 (print "Min") (print (finde-kleinstes tree)))
 	 (8 (print "Delete") (print(setq tree (entfernen tree (read) ))))
 	 (9 (print "AddAll") (print (setq tree (addAll tree (read)))))
-	 (10 (print "PrintLevelorder") (printLevelorder tree))
+	 (10 (print "PrintLevelorder") (tree-printLevelorder tree))
      (0 (print "Beendet") (setq in 0)))))
 
 
