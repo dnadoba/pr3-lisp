@@ -3,7 +3,7 @@
 ;	     2      6
 ;	 1      3
 ;		    4
-(setq baum '( 5 ( 2 (1 nil nil) (3 nil (4 nil nil) )) (6 nil nil)))
+;(setq baum '( 5 ( 2 (1 nil nil) (3 nil (4 nil nil) )) (6 nil nil)))
 
 ;returns the smallest element of the tree
 (defun finde-kleinstes (baum)
@@ -11,6 +11,15 @@
     ((second baum) ;left subtree exists
      (finde-kleinstes (second baum)))
     (T ;no left subtree
+     (first baum)))
+)
+
+;returns the biggest element of the tree
+(defun finde-groesstes (baum)
+  (cond 
+    ((first baum) ;right subtree exists
+     (finde-groesstes (first baum)))
+    (T ;no right subtree
      (first baum)))
 )
 
@@ -56,5 +65,5 @@
     )
 )
 
-(print 'Loesche-5)
-(loeschen baum 5)
+;(print 'Loesche-5)
+;(loeschen baum 5)
