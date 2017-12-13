@@ -17,4 +17,4 @@
 			)
 	)
 
-(tree-printLevelOrder `(2 (1) (3)))
+;(tree-printLevelOrder `(2 (1) (3)))
