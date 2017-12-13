@@ -3,6 +3,7 @@
 		((null (first baum))(list val nil nil))
         ((> (first baum) val)(list (first baum) (insert (second baum) val) (third baum)))
         ((< (first baum) val)(list (first baum) (second baum) (insert (third baum) val)))
+		((eql(first baum) val) baum)
 	)
 )  
 
@@ -40,4 +41,3 @@
 	)
 	tree
 )    
-
