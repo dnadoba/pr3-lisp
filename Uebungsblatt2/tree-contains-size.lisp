@@ -20,16 +20,4 @@
   ) 
 )
 
-<<<<<<< Updated upstream
-(defun sizeCount(tree count)
-   (cond ((first tree)
-       (incf count)
-       (setq count (sizeCount (second tree) count))
-       (setq count (sizeCount (third tree) count))	
-       )
-   ) 
-   count
-)
-=======
 ;(size `(1 (2 (3) (4))))
->>>>>>> Stashed changes
