@@ -24,5 +24,5 @@
        (setq count (sizeCount (third tree) count))	
        )
    ) 
-   (first(list count))
+   count
 )
