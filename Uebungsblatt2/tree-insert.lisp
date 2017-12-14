@@ -1,11 +1,18 @@
 (defun insert(baum val)
     (cond
-		((null (first baum))(list val nil nil))
-        ((> (first baum) val)(list (first baum) (insert (second baum) val) (third baum)))
-        ((< (first baum) val)(list (first baum) (second baum) (insert (third baum) val)))
-		((eql(first baum) val) baum)
-	)
-)  
+      ((null (first baum))
+       (list val nil nil))
+      ((> (first baum) val)
+       (list (first baum) 
+	     (insert (second baum) val) 
+	     (third baum)))
+      ((< (first baum) val)
+       (list (first baum) 
+	     (second baum) 
+	     (insert (third baum) val)))
+      ((eql(first baum) val) baum)
+      )
+) 
 
 (defun readFile (filename)
     (with-open-file (stream filename :direction :input)
@@ -23,12 +30,15 @@
 
 (defun insertAll(tree values)
 	(cond 
-		((not (eql (first values) nil))
-			(setq tree (insert tree (first values)))
-			(setq tree (insertAll tree (rest values)))
+		((not (null(first values)))
+			;(setq tree (insert tree (first values)))
+			;(setq tree (insertAll tree (rest values)))
+
+			(insertAll (insert tree (first values))
+				(rest values))
 		)
+		(T tree)
 	)
-	tree
 )
 
 (defun addAll(tree otherTree)
