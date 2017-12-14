@@ -1,9 +1,9 @@
 (defun contains (baum val)
     (cond
         ((null baum)
-             'nil
+             nil
          )
-        ((eql (first baum) val) 'val)
+        ((eql (first baum) val) T)
         ((> (first baum) val) 
              (contains (second baum) val)
          )
