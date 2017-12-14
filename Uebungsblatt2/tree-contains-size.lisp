@@ -11,12 +11,16 @@
              (contains (third baum) val)
          )
     )
-)    
-
-(defun size(tree)
-   (sizeCount tree 0) 
 )
 
+(defun size(tree)
+  (if 
+    (first tree) (+ 1 (size (second tree)) (size (third tree)))
+    0
+  ) 
+)
+
+<<<<<<< Updated upstream
 (defun sizeCount(tree count)
    (cond ((first tree)
        (incf count)
@@ -26,3 +30,6 @@
    ) 
    count
 )
+=======
+;(size `(1 (2 (3) (4))))
+>>>>>>> Stashed changes
