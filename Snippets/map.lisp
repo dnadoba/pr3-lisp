@@ -1,0 +1,1 @@
+(print (map `list #'(lambda (x)(* x x)) `(1 2 3 4 5)))
